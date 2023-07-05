@@ -7,6 +7,7 @@
       gnumake
 
       ligra
+      krill
     ];
   };
 }

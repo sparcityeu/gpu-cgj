@@ -3,4 +3,5 @@
 {pkgs ? (import ../nixpkgs.nix) {}}: {
   # example = pkgs.callPackage ./example { };
   ligra = pkgs.callPackage ./ligra { };
+  krill = pkgs.callPackage ./krill { };
 }
