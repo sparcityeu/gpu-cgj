@@ -3,13 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs = {
     self,
     nixpkgs,
-    flake-utils,
   }: let
     inherit (self) outputs;
     forAllSystems = nixpkgs.lib.genAttrs [
@@ -21,7 +19,10 @@
     mkPkgs = system:
       import nixpkgs {
         inherit system;
-        # config.allowUnfree = true;
+        config = {
+          allowUnfree = true;
+          cudaSupport = true;
+        };
         overlays = [
           # Add overlays our own flake exports (from overlays and pkgs dir):
           outputs.overlays.modifications
