@@ -25,8 +25,11 @@ namespace custom {
 					t_end = std::chrono::steady_clock::now();
 					done = true;
 				}
-				auto seconds = std::chrono::duration_cast<std::chrono::duration<double>>(t_end - t_start).count();
-				std::cout << name << " took " << seconds << " seconds." << std::endl;
+				std::cout << name << " took " << seconds() << " seconds." << std::endl;
+			}
+
+			double seconds() {
+				return std::chrono::duration_cast<std::chrono::duration<double>>(t_end - t_start).count();
 			}
 	};
 }
