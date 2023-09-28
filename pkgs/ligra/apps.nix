@@ -3,7 +3,7 @@
   fetchFromGitHub,
   ...
 }:
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "Ligra";
   version = "2021-06-04";
   src = fetchFromGitHub {
